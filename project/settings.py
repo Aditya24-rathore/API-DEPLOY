@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-6r(bo*(j@q=(1mr9j+qdezn&s^6=@9f-*22@hkgdy&^4wb&yu2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "api-drf-deploy-1.onrender.com",  # your exact Render domain
+    ".onrender.com",                  # (optional) allows any Render subdomain
+]
 
 
 # Application definition
@@ -121,3 +126,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import os
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL ='/static/'
+STATIC_ROOT = os.path.join(BASE_DIR ,'staticfiles')
+STATICFILES_DIRS =[os.path.join(BASE_DIR ,'static')]
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR ,'media')
